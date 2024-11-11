@@ -1,5 +1,4 @@
 // server/models/User.js
-const { login } = require("../controller/loginController");
 const db = require("../db/db");
 
 const Login = {

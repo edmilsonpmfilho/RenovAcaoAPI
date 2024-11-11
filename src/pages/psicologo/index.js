@@ -5,7 +5,7 @@ function Aluno() {
 
   return (
     <div className='container'>
-      <Menu userRole="psicologo" />
+      <Menu  />
       <div className='text'>
         <h1>Psicologo</h1>
         <p>

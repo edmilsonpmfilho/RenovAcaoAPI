@@ -10,9 +10,11 @@ import Administrador from './pages/admin';
 import Aluno from './pages/aluno';
 import Psicologo from './pages/psicologo';
 import Footer from './componentes/footer';
-/* import AdministradorCronograma from './pages/admincronograma';
+import AdministradorCadastro from './pages/adminCadastro';
 import Cadastro from './pages/cadastro';
-import AdministradorCadastro from './pages/admincadastro';
+import TrocarSenha from './pages/trocarsenha';
+/* import AdministradorCronograma from './pages/admincronograma';
+
 import AdministradorRelatorio from './pages/adminrelatorio';
 import AdministradorMensagem from './pages/adminmensagem';
 import AlunoTrilha from './pages/alunotrilha';
@@ -35,10 +37,13 @@ function App() {
             <Route path="/administrador" element={<Administrador />} />
             <Route path="/aluno" element={<Aluno />} />
             <Route path="/psicologo" element={<Psicologo />} />
-
-            {/* <Route path="/cadastro" element={<Cadastro />} />
-            <Route path="/admincronograma" element={<AdministradorCronograma />} />
             <Route path="/admincadastro" element={<AdministradorCadastro />} />
+            <Route path="/cadastro" element={<Cadastro />} />
+            <Route path="/trocarsenha" element={<TrocarSenha />} />
+
+            {/* 
+            <Route path="/admincronograma" element={<AdministradorCronograma />} />
+            
             <Route path="/adminrelatorio" element={<AdministradorRelatorio />} />
             <Route path="/adminmensagem" element={<AdministradorMensagem />} />            
             <Route path="/alunotrilha" element={<AlunoTrilha />} />

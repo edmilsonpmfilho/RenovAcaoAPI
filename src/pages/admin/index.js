@@ -5,7 +5,7 @@ function Administrador() {
 
   return (
     <div className='container'>
-      <Menu userRole="administrador" />
+     <Menu  />
       <div className='text'>
         <h1>Administrador</h1>
         <p>

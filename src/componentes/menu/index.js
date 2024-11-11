@@ -1,4 +1,7 @@
+// Menu.js
 import React, { useContext, useState } from 'react';
+import { UserContext } from '../../contexts/UserContext';
+import { Link, useNavigate } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -9,32 +12,27 @@ import PeopleIcon from '@mui/icons-material/People';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 import AssessmentIcon from '@mui/icons-material/Assessment';
-import { Link, useNavigate } from 'react-router-dom';
 import api from '../api/apiConfig';
-import { UserContext } from '../../contexts/UserContext';
 import './styles.css';
 
-function Menu({ userRole }) {
+function Menu() {
   const [isOpen, setIsOpen] = useState(false);
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext); // Agora obtemos `userRole` diretamente
+  const userRole = user?.tipoUsuario; // `userRole` será `tipoUsuario` do `UserContext`
   const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  // Função de logout
   const handleLogout = async () => {
     try {
       if (!user || !user.email) {
         alert("Nenhum usuário logado.");
         return;
       }
-  
-      console.log("Tentando deslogar usuário:", user.email); // Adicionando log de depuração
-  
+
       const response = await api.post("/logout", { email: user.email });
-  
       if (response.status === 200) {
         alert(response.data.msg);
         setUser(null);
@@ -54,7 +52,7 @@ function Menu({ userRole }) {
           <>
             <Link to={'/admincronograma'}>
               <button className='button'>
-                <AppRegistrationIcon /> Cronograma
+                <AppRegistrationIcon /> Adicionar Trilha
               </button>
             </Link>
             <Link to={'/admincadastro'}>
@@ -127,6 +125,11 @@ function Menu({ userRole }) {
       {isOpen && (
         <div className="menu-items">
           {renderMenuItems()}
+          <Link to={'/trocarsenha'}>
+            <button className='button'>
+              <AssessmentIcon /> Trocar Senha
+            </button>
+          </Link>
           <button className='button logout-button' onClick={handleLogout}>
             <LogoutIcon /> Sair
           </button>
