@@ -1,65 +1,39 @@
-// controllers/AdminTrilhaController.js
-const AdminTrilhaModel = require('../model/adminTrilhaModel');
+const AdminTrilhaModel = require("../model/adminTrilhaModel");
 
 const AdminTrilhaController = {
-  getAll: async (req, res) => {
-    try {
-      const trilhas = await AdminTrilhaModel.getAll();
-      res.json(trilhas);
-    } catch (error) {
-      res.status(500).send({ error: 'Erro ao buscar trilhas.' });
-    }
-  },
+  // Controlador para adicionar uma nova trilha
+  addTrilha: (req, res) => {
+    const { titulo, descricao, matricula_aluno } = req.body;
 
-  getById: async (req, res) => {
-    try {
-      const { id } = req.params;
-      const trilha = await AdminTrilhaModel.getById(id);
-      if (!trilha) {
-        return res.status(404).send({ msg: 'Trilha não encontrada.' });
+    if (!titulo || !descricao || !matricula_aluno || matricula_aluno.length !== 8) {
+      return res.status(400).json({ msg: "Todos os campos são obrigatórios e a matrícula deve ter 8 caracteres" });
+    }
+
+    AdminTrilhaModel.addTrilha(titulo, descricao, matricula_aluno, (err, result) => {
+      if (err) {
+        console.error("Erro ao adicionar trilha:", err);
+        return res.status(500).json({ msg: "Erro interno no servidor" });
       }
-      res.json(trilha);
-    } catch (error) {
-      res.status(500).send({ error: 'Erro ao buscar trilha.' });
-    }
+      res.status(201).json({ msg: "Trilha adicionada com sucesso", trilhaId: result.insertId });
+    });
   },
 
-  create: async (req, res) => {
-    try {
-      const { titulo, descricao, matricula_aluno } = req.body;
-      const trilha = await AdminTrilhaModel.create({ titulo, descricao, matricula_aluno });
-      res.status(201).send({ msg: 'Trilha criada com sucesso', trilhaId: trilha.id });
-    } catch (error) {
-      res.status(500).send({ error: 'Erro ao criar trilha.' });
-    }
-  },
+  // Controlador para adicionar um link a uma trilha
+  addLink: (req, res) => {
+    const { url, titulo, descricao, trilha_id } = req.body;
 
-  update: async (req, res) => {
-    try {
-      const { id } = req.params;
-      const { titulo, descricao } = req.body;
-      const result = await AdminTrilhaModel.update(id, { titulo, descricao });
-      if (result.affectedRows === 0) {
-        return res.status(404).send({ msg: 'Trilha não encontrada.' });
+    if (!url || !titulo || !descricao || !trilha_id) {
+      return res.status(400).json({ msg: "Todos os campos são obrigatórios" });
+    }
+
+    AdminTrilhaModel.addLink(url, titulo, descricao, trilha_id, (err, result) => {
+      if (err) {
+        console.error("Erro ao adicionar link:", err);
+        return res.status(500).json({ msg: "Erro interno no servidor" });
       }
-      res.send({ msg: 'Trilha atualizada com sucesso' });
-    } catch (error) {
-      res.status(500).send({ error: 'Erro ao atualizar trilha.' });
-    }
+      res.status(201).json({ msg: "Link adicionado com sucesso" });
+    });
   },
-
-  delete: async (req, res) => {
-    try {
-      const { id } = req.params;
-      const result = await AdminTrilhaModel.delete(id);
-      if (result.affectedRows === 0) {
-        return res.status(404).send({ msg: 'Trilha não encontrada.' });
-      }
-      res.send({ msg: 'Trilha deletada com sucesso' });
-    } catch (error) {
-      res.status(500).send({ error: 'Erro ao deletar trilha.' });
-    }
-  }
 };
 
 module.exports = AdminTrilhaController;

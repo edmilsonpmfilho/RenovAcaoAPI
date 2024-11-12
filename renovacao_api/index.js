@@ -9,6 +9,7 @@ const adminCadastroRouter = require("./router/adminCadastroRouter"); //router ad
 const cadastroRouter = require("./router/cadastroRouter"); //router cadastro
 const trocarSenhaRouter = require("./router/trocarSenhaRouter");
 const adminTrilhaRouter = require("./router/adminTrilhaRouter"); //router trocar senha
+const alunoTrilhaRouter = require("./router/alunoTrilhaRouter"); //router trocar senha
 
 
 const app = express();
@@ -18,7 +19,8 @@ app.use("/", router);//router login
 app.use("/", adminCadastroRouter); // Prefixo /api para as rotas de usuário / admincadastro
 app.use("/api", cadastroRouter); // Prefixo /api para as rotas de usuário
 app.use("/", trocarSenhaRouter);// prefixo do trocar senha
-app.use("/", adminTrilhaRouter);// adicionar trilha
+app.use("/", adminTrilhaRouter);// adicionar trilha admin
+app.use("/", alunoTrilhaRouter);// adicionar trilha aluno
 
 
 const PORT = 3001;

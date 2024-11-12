@@ -7,7 +7,6 @@ import styles from './adminTrilha.module.css';
 Modal.setAppElement('#root');
 
 const AdministradorTrilha = () => {
-  // Estados para o formulário de trilhas e links
   const [tituloTrilha, setTituloTrilha] = useState('');
   const [descricaoTrilha, setDescricaoTrilha] = useState('');
   const [links, setLinks] = useState([{ url: '', titulo: '', descricao: '' }]);
@@ -15,7 +14,6 @@ const AdministradorTrilha = () => {
   const [feedbackTrilha, setFeedbackTrilha] = useState('');
   const [matriculaAlunoTrilha, setMatriculaAlunoTrilha] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
-
 
   const handleSubmitTrilha = async (e) => {
     e.preventDefault();
@@ -31,11 +29,14 @@ const AdministradorTrilha = () => {
         descricao: descricaoTrilha,
         matricula_aluno: matriculaAlunoTrilha,
       });
-      setFeedbackTrilha(response.data.msg);
-      setTrilhaId(response.data.trilhaId);
-      setTituloTrilha('');
-      setDescricaoTrilha('');
-      setIsModalOpen(true);  // Abre o modal ao adicionar a trilha com sucesso
+      if (response.data) {
+        setFeedbackTrilha(response.data.msg);
+        setTrilhaId(response.data.trilhaId);
+        setTituloTrilha('');
+        setDescricaoTrilha('');
+        setMatriculaAlunoTrilha('');
+        setIsModalOpen(true);  // Abre o modal ao adicionar a trilha com sucesso
+      }
     } catch (error) {
       setFeedbackTrilha('Erro ao adicionar a trilha.');
     }
@@ -78,12 +79,12 @@ const AdministradorTrilha = () => {
   };
 
   return (
-
     <div className={styles.body}>
-      <Menu />
+      <Menu userRole="administrador" />
       <header className={styles.header}>
-        <h1>Trilhas</h1>
-      </header>     
+        <h1>Administrador Trilha</h1>
+      </header>
+      
       {/* Formulário para adicionar trilhas */}
       <div className={styles.formContainer}>
         <h2>Adicionar Trilha</h2>
@@ -122,13 +123,14 @@ const AdministradorTrilha = () => {
         </form>
         {feedbackTrilha && <p>{feedbackTrilha}</p>}
       </div>
+      
       {/* Modal para adicionar links */}
       <Modal
         isOpen={isModalOpen}
         onRequestClose={() => setIsModalOpen(false)}
         contentLabel="Adicionar Links"
-        className="modal"
-        overlayClassName="overlay"
+        className={styles.modal}
+        overlayClassName={styles.overlay}
       >
         <h2>Adicionar Links</h2>
         <form onSubmit={handleSubmitLink}>
