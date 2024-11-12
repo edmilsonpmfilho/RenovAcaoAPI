@@ -13,7 +13,7 @@ const TrocarSenha = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
   const { user } = useContext(UserContext);
-  const userRole = user?.tipoUsuario;
+ 
 
   const handlePasswordChange = async (e) => {
     e.preventDefault();

@@ -50,7 +50,7 @@ function Menu() {
       case 'administrador':
         return (
           <>
-            <Link to={'/admincronograma'}>
+            <Link to={'/admintrilha'}>
               <button className='button'>
                 <AppRegistrationIcon /> Adicionar Trilha
               </button>

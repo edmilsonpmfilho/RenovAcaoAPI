@@ -14,16 +14,79 @@ const createUsersTable = `
   );
 `;
 
-// Função para criar as tabelas
+const createTrilhasTable = `
+  CREATE TABLE IF NOT EXISTS trilhas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(255) NOT NULL,
+    descricao TEXT,
+    matricula_aluno VARCHAR(8) NOT NULL,
+    FOREIGN KEY (matricula_aluno) REFERENCES usuarios(matricula) ON DELETE CASCADE
+  );
+`;
+
+const createLinksTable = `
+  CREATE TABLE IF NOT EXISTS links (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    url VARCHAR(255) NOT NULL,
+    titulo VARCHAR(255) NOT NULL,
+    descricao TEXT,
+    trilha_id INT NOT NULL,
+    FOREIGN KEY (trilha_id) REFERENCES trilhas(id) ON DELETE CASCADE
+  );
+`;
+
+const createLinksAssistidosTable = `
+  CREATE TABLE IF NOT EXISTS links_assistidos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    link_id INT NOT NULL,
+    matricula_aluno VARCHAR(8) NOT NULL,
+    assistido BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (link_id) REFERENCES links(id) ON DELETE CASCADE,
+    FOREIGN KEY (matricula_aluno) REFERENCES usuarios(matricula) ON DELETE CASCADE
+  );
+`;
+
+// Função para verificar e criar tabelas
 const dbTable = () => {
+  // Criação da tabela 'usuarios'
   db.query(createUsersTable, (err) => {
     if (err) {
-      console.error("Erro ao criar a tabela usuarios:", err);
-    } else {
-      console.log("Tabela 'usuarios' verificada/criada com sucesso.");
+      console.error("Erro ao criar a tabela 'usuarios':", err);
+      return;
     }
+    console.log("Tabela 'usuarios' verificada/criada com sucesso.");
+
+    // Criação da tabela 'trilhas'
+    db.query(createTrilhasTable, (err) => {
+      if (err) {
+        console.error("Erro ao criar a tabela 'trilhas':", err);
+        return;
+      }
+      console.log("Tabela 'trilhas' verificada/criada com sucesso.");
+
+      // Criação da tabela 'links'
+      db.query(createLinksTable, (err) => {
+        if (err) {
+          console.error("Erro ao criar a tabela 'links':", err);
+          return;
+        }
+        console.log("Tabela 'links' verificada/criada com sucesso.");
+
+        // Criação da tabela 'links_assistidos'
+        db.query(createLinksAssistidosTable, (err) => {
+          if (err) {
+            console.error("Erro ao criar a tabela 'links_assistidos':", err);
+            return;
+          }
+          console.log("Tabela 'links_assistidos' verificada/criada com sucesso.");
+        });
+      });
+    });
   });
 };
 
 // Executa a função de criação ao importar o arquivo
 dbTable();
+
+module.exports = dbTable;
+

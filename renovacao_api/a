@@ -1,0 +1,140 @@
+// Rota para adicionar trilha
+router.post("/adicionar-trilha", (req, res) => {
+  const { titulo, descricao, matricula_aluno } = req.body;
+
+  if (matricula_aluno.length !== 8) {
+    return res.status(400).send({ msg: "A matrícula do aluno deve ter exatamente 8 caracteres" });
+  }
+
+  db.query(
+    "INSERT INTO trilhas (titulo, descricao, matricula_aluno) VALUES (?, ?, ?)",
+    [titulo, descricao, matricula_aluno],
+    (err, result) => {
+      if (err) {
+        res.status(500).send(err);
+        return;
+      }
+      res.send({ msg: "Trilha adicionada com sucesso", trilhaId: result.insertId });
+    }
+  );
+});
+
+// Rota para adicionar link a uma trilha
+router.post("/adicionar-link", (req, res) => {
+  const { url, titulo, descricao, trilha_id } = req.body;
+
+  db.query(
+    "INSERT INTO links (url, titulo, descricao, trilha_id) VALUES (?, ?, ?, ?)",
+    [url, titulo, descricao, trilha_id],
+    (err, result) => {
+      if (err) {
+        res.status(500).send(err);
+        return;
+      }
+      res.send({ msg: "Link adicionado com sucesso" });
+    }
+  );
+});
+
+// Rota para marcar link como assistido
+router.post("/marcar-assistido", (req, res) => {
+  const { link_id, matricula_aluno } = req.body;
+
+  if (matricula_aluno.length !== 8) {
+    return res.status(400).send({ msg: "A matrícula do aluno deve ter exatamente 8 caracteres" });
+  }
+
+  db.query(
+    "INSERT INTO links_assistidos (link_id, matricula_aluno, assistido) VALUES (?, ?, TRUE) ON DUPLICATE KEY UPDATE assistido = TRUE",
+    [link_id, matricula_aluno],
+    (err, result) => {
+      if (err) {
+        res.status(500).send(err);
+        return;
+      }
+
+      // Verifica se todos os links da trilha foram assistidos
+      db.query(
+        "SELECT COUNT(*) AS total_links FROM links WHERE trilha_id = (SELECT trilha_id FROM links WHERE id = ?)",
+        [link_id],
+        (err, totalLinksResult) => {
+          if (err) {
+            res.status(500).send(err);
+            return;
+          }
+          const totalLinks = totalLinksResult[0].total_links;
+
+          db.query(
+            "SELECT COUNT(*) AS assistidos FROM links_assistidos WHERE link_id IN (SELECT id FROM links WHERE trilha_id = (SELECT trilha_id FROM links WHERE id = ?)) AND matricula_aluno = ? AND assistido = TRUE",
+            [link_id, link_id, matricula_aluno],
+            (err, assistidosResult) => {
+              if (err) {
+                res.status(500).send(err);
+                return;
+              }
+              const assistidos = assistidosResult[0].assistidos;
+
+              if (totalLinks === assistidos) {
+                // Obter o título da trilha
+                db.query(
+                  "SELECT t.titulo FROM trilhas t JOIN links l ON t.id = l.trilha_id WHERE l.id = ?",
+                  [link_id],
+                  (err, trilhaResult) => {
+                    if (err) {
+                      res.status(500).send(err);
+                      return;
+                    }
+                    const titulo_trilha = trilhaResult[0].titulo;
+
+                 
+                  }
+                );
+              } else {
+                res.send({ msg: "Link marcado como assistido" });
+              }
+            }
+          );
+        }
+      );
+    }
+  );
+});
+
+// Listar trilhas por aluno
+router.get("/trilhas/:matricula_aluno", (req, res) => {
+  const matricula_aluno = req.params.matricula_aluno;
+
+  if (matricula_aluno.length !== 8) {
+    return res.status(400).send({ msg: "A matrícula deve ter exatamente 8 caracteres" });
+  }
+
+  db.query(
+    "SELECT * FROM trilhas WHERE matricula_aluno = ?",
+    [matricula_aluno],
+    (err, result) => {
+      if (err) {
+        res.status(500).send(err);
+        return;
+      }
+      res.send(result);
+    }
+  );
+});
+
+// Listar links de uma trilha
+router.get("/links/:trilha_id", (req, res) => {
+  const trilha_id = req.params.trilha_id;
+  const matricula_aluno = req.query.matricula_aluno;
+
+  db.query(
+    "SELECT l.*, la.assistido FROM links l LEFT JOIN links_assistidos la ON l.id = la.link_id AND la.matricula_aluno = ? WHERE l.trilha_id = ?",
+    [matricula_aluno, trilha_id],
+    (err, result) => {
+      if (err) {
+        res.status(500).send(err);
+        return;
+      }
+      res.send(result);
+    }
+  );
+});
