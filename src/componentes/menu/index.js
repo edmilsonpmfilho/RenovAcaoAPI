@@ -50,6 +50,11 @@ function Menu() {
       case 'administrador':
         return (
           <>
+          <Link to={'/admincronograma'}>
+              <button className='button'>
+                <AppRegistrationIcon /> Adicionar Cronograma
+              </button>
+            </Link>
             <Link to={'/admintrilha'}>
               <button className='button'>
                 <AppRegistrationIcon /> Adicionar Trilha
@@ -80,9 +85,9 @@ function Menu() {
                 <TheatersIcon /> Trilha educativa
               </button>
             </Link>
-            <Link to={'/alunoagenda'}>
+            <Link to={'/alunocronograma'}>
               <button className='button'>
-                <CalendarMonthIcon /> Agenda
+                <CalendarMonthIcon /> Cronograma
               </button>
             </Link>
             <Link to={'/alunomensagem'}>
@@ -95,9 +100,9 @@ function Menu() {
       case 'psicologo':
         return (
           <>
-            <Link to={'/psicologoagenda'}>
+            <Link to={'/psicologocronograma'}>
               <button className='button'>
-                <CalendarMonthIcon /> Agenda
+                <CalendarMonthIcon /> Cronograma
               </button>
             </Link>
             <Link to={'/psicologoacompanhamento'}>

@@ -15,15 +15,17 @@ import Cadastro from './pages/cadastro';
 import TrocarSenha from './pages/trocarsenha';
 import AdministradorTrilha from './pages/adminTrilha';
 import AlunoTrilha from './pages/alunoTrilha';
-
+import AdministradorCronograma from './pages/adminCronograma';
+import AlunoCronograma from './pages/alunoCronograma';
+import PsicologoCronograma from './pages/psicoCronograma';
 /* 
 
 import AdministradorRelatorio from './pages/adminrelatorio';
 import AdministradorMensagem from './pages/adminmensagem';
 
-import AlunoAgenda from './pages/alunoagenda';
+
 import AlunoMensagem from './pages/alunomensagem';
-import PsicologoAgenda from './pages/psicologoagenda';
+import PsicologoCronograma from './pages/psicologoagenda';
 import PsicologoAcompanhamento from './pages/psicologoacompanhamento';
 import PsicologoMensagem from './pages/psicologomensagem';
  */
@@ -45,6 +47,9 @@ function App() {
             <Route path="/trocarsenha" element={<TrocarSenha />} />
             <Route path="/admintrilha" element={<AdministradorTrilha />} />
             <Route path="/alunotrilha" element={<AlunoTrilha />} />
+            <Route path="/admincronograma" element={<AdministradorCronograma />} />
+            <Route path="/alunocronograma" element={<AlunoCronograma />} />
+            <Route path="/psicologocronograma" element={<PsicologoCronograma />} />
 
             {/* 
             
@@ -52,9 +57,9 @@ function App() {
             <Route path="/adminrelatorio" element={<AdministradorRelatorio />} />
             <Route path="/adminmensagem" element={<AdministradorMensagem />} />            
             
-            <Route path="/alunoagenda" element={<AlunoAgenda />} />
+            
             <Route path="/alunomensagem" element={<AlunoMensagem />} />          
-            <Route path="/psicologoagenda" element={<PsicologoAgenda />} />
+            <Route path="/psicologoagenda" element={<PsicologoCronograma />} />
             <Route path="/psicologoacompanhamento" element={<PsicologoAcompanhamento />} />
             <Route path="/psicologomensagem" element={<PsicologoMensagem />} /> */}
           </Routes>

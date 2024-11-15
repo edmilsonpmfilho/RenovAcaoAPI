@@ -46,6 +46,18 @@ const createLinksAssistidosTable = `
   );
 `;
 
+const createEventosTable = `
+  CREATE TABLE IF NOT EXISTS eventos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    data_evento DATE NOT NULL,
+    matricula_aluno VARCHAR(8) NOT NULL,
+    matricula_psicologo VARCHAR(8) NOT NULL,
+    descricao TEXT NOT NULL,
+    FOREIGN KEY (matricula_aluno) REFERENCES usuarios(matricula) ON DELETE CASCADE,
+    FOREIGN KEY (matricula_psicologo) REFERENCES usuarios(matricula) ON DELETE CASCADE
+  );
+`;
+
 // Função para verificar e criar tabelas
 const dbTable = () => {
   // Criação da tabela 'usuarios'
@@ -79,6 +91,15 @@ const dbTable = () => {
             return;
           }
           console.log("Tabela 'links_assistidos' verificada/criada com sucesso.");
+
+          // Criação da tabela 'eventos'
+          db.query(createEventosTable, (err) => {
+            if (err) {
+              console.error("Erro ao criar a tabela 'eventos':", err);
+              return;
+            }
+            console.log("Tabela 'eventos' verificada/criada com sucesso.");
+          });
         });
       });
     });
@@ -89,4 +110,3 @@ const dbTable = () => {
 dbTable();
 
 module.exports = dbTable;
-
