@@ -26,22 +26,6 @@ const AdminCronogramaController = {
       console.error("Erro ao adicionar evento:", err);
       res.status(500).send({ msg: "Erro ao adicionar evento" });
     }
-  },
-
-  buscarEventos: async (req, res) => {
-    const { matricula_psicologo, matricula_aluno } = req.query;
-
-    if (!matricula_psicologo || !matricula_aluno) {
-      return res.status(400).send({ msg: "Matrícula do aluno e do psicólogo são obrigatórias" });
-    }
-
-    try {
-      const eventos = await AdminCronogramaModel.buscarEventos(matricula_psicologo, matricula_aluno);
-      res.send(eventos);
-    } catch (err) {
-      console.error("Erro ao buscar eventos:", err);
-      res.status(500).send({ msg: "Erro ao buscar eventos" });
-    }
   }
 };
 

@@ -6,10 +6,4 @@ const AlunoCronogramaController = require('../controller/alunoCronogramaControll
 // Rota para listar eventos por aluno
 AlunoCronogramaRouter.get('/eventos/:matricula_aluno', AlunoCronogramaController.getEventosPorAluno);
 
-// Rota para listar datas distintas de consulta por matrícula do aluno
-AlunoCronogramaRouter.get('/eventos-datas/:matricula', AlunoCronogramaController.getDatasDistintas);
-
-// Rota existente para listar eventos por psicólogo e aluno
-AlunoCronogramaRouter.get('/eventos', AlunoCronogramaController.getEventos);
-
 module.exports = AlunoCronogramaRouter;

@@ -12,6 +12,7 @@ import PeopleIcon from '@mui/icons-material/People';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 import AssessmentIcon from '@mui/icons-material/Assessment';
+import LockIcon from '@mui/icons-material/Lock';
 import api from '../api/apiConfig';
 import './styles.css';
 
@@ -132,7 +133,7 @@ function Menu() {
           {renderMenuItems()}
           <Link to={'/trocarsenha'}>
             <button className='button'>
-              <AssessmentIcon /> Trocar Senha
+              <LockIcon /> Trocar Senha
             </button>
           </Link>
           <button className='button logout-button' onClick={handleLogout}>
