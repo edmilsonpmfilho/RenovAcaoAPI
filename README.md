@@ -13,3 +13,4 @@ npm install moment react-big-calendar
 npm install bcrypt express mysql2 nodemon cors
 npm install express-session
 npm install joi
+ npm install sequelize

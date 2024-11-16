@@ -58,7 +58,7 @@ function Menu() {
             </Link>
             <Link to={'/admintrilha'}>
               <button className='button'>
-                <AppRegistrationIcon /> Adicionar Trilha
+                <TheatersIcon /> Adicionar Trilha
               </button>
             </Link>
             <Link to={'/admincadastro'}>

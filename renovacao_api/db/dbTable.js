@@ -58,6 +58,29 @@ const createEventosTable = `
   );
 `;
 
+const createMensagensTable = `
+  CREATE TABLE IF NOT EXISTS mensagens (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    remetente_id INT NOT NULL,
+    destinatario_tipo ENUM('administrador', 'psicologo') NOT NULL,
+    mensagem TEXT NOT NULL,
+    data_envio TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (remetente_id) REFERENCES usuarios(id) ON DELETE CASCADE
+  );
+`;
+
+const createRespostasTable = `
+  CREATE TABLE IF NOT EXISTS respostas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    mensagem_id INT NOT NULL,
+    resposta TEXT NOT NULL,
+    data_resposta TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    matricula_psicologo VARCHAR(8),
+    matricula_administrador VARCHAR(8),
+    FOREIGN KEY (mensagem_id) REFERENCES mensagens(id) ON DELETE CASCADE
+  );
+`;
+
 // Função para verificar e criar tabelas
 const dbTable = () => {
   // Criação da tabela 'usuarios'
@@ -99,6 +122,24 @@ const dbTable = () => {
               return;
             }
             console.log("Tabela 'eventos' verificada/criada com sucesso.");
+
+            // Criação da tabela 'mensagens'
+            db.query(createMensagensTable, (err) => {
+              if (err) {
+                console.error("Erro ao criar a tabela 'mensagens':", err);
+                return;
+              }
+              console.log("Tabela 'mensagens' verificada/criada com sucesso.");
+
+              // Criação da tabela 'respostas'
+              db.query(createRespostasTable, (err) => {
+                if (err) {
+                  console.error("Erro ao criar a tabela 'respostas':", err);
+                  return;
+                }
+                console.log("Tabela 'respostas' verificada/criada com sucesso.");
+              });
+            });
           });
         });
       });

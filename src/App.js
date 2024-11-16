@@ -18,16 +18,19 @@ import AlunoTrilha from './pages/alunoTrilha';
 import AdministradorCronograma from './pages/adminCronograma';
 import AlunoCronograma from './pages/alunoCronograma';
 import PsicologoCronograma from './pages/psicoCronograma';
+import AdministradorMensagem from './pages/adminMensagem';
+import AlunoMensagem from './pages/alunoMensagem';
+import PsicologoMensagem from './pages/psicoMensagem';
 /* 
 
 import AdministradorRelatorio from './pages/adminrelatorio';
-import AdministradorMensagem from './pages/adminmensagem';
 
 
-import AlunoMensagem from './pages/alunomensagem';
+
+
 import PsicologoCronograma from './pages/psicologoagenda';
 import PsicologoAcompanhamento from './pages/psicologoacompanhamento';
-import PsicologoMensagem from './pages/psicologomensagem';
+
  */
 
 function App() {
@@ -50,18 +53,21 @@ function App() {
             <Route path="/admincronograma" element={<AdministradorCronograma />} />
             <Route path="/alunocronograma" element={<AlunoCronograma />} />
             <Route path="/psicologocronograma" element={<PsicologoCronograma />} />
+            <Route path="/adminmensagem" element={<AdministradorMensagem />} />
+            <Route path="/alunomensagem" element={<AlunoMensagem />} />
+            <Route path="/psicologomensagem" element={<PsicologoMensagem />} />
 
             {/* 
             
             
             <Route path="/adminrelatorio" element={<AdministradorRelatorio />} />
-            <Route path="/adminmensagem" element={<AdministradorMensagem />} />            
+                        
             
             
-            <Route path="/alunomensagem" element={<AlunoMensagem />} />          
+                      
             <Route path="/psicologoagenda" element={<PsicologoCronograma />} />
             <Route path="/psicologoacompanhamento" element={<PsicologoAcompanhamento />} />
-            <Route path="/psicologomensagem" element={<PsicologoMensagem />} /> */}
+             */}
           </Routes>
           <Footer />
         </div>

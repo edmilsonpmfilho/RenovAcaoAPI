@@ -13,6 +13,8 @@ const alunoTrilhaRouter = require("./router/alunoTrilhaRouter"); //router recebe
 const adminCronogramaRouter = require("./router/adminCronogramaRouter"); //router trocar senha
 const alunoCronogramaRouter = require("./router/alunoCronogramaRouter"); //router trocar senha
 const psicoCronogramaRouter = require("./router/psicoCronogramaRouter"); //router trocar senha
+const alunoMensagemRouter = require("./router/alunoMensagemRouter"); //router trocar senha
+const mensagemRouter = require("./router/mensagemRouter"); //router trocar senha
 
 const app = express();
 app.use(express.json());
@@ -26,6 +28,8 @@ app.use("/", alunoTrilhaRouter);// adicionar trilha aluno
 app.use("/", adminCronogramaRouter);// adicionar cronograma admin
 app.use("/", alunoCronogramaRouter);// adicionar cronograma admin
 app.use("/", psicoCronogramaRouter);// adicionar cronograma admin
+app.use("/", alunoMensagemRouter);// mensagem
+app.use("/", mensagemRouter);// mensagem
 
 
 

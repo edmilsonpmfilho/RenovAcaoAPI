@@ -83,7 +83,7 @@ const AlunoMensagem = () => {
       <div className="form-section">
         <h1>Enviar Mensagem</h1>
         <form onSubmit={handleSubmit} className="form">
-          <div>
+          {/* <div>
             <label className="label">Sua Matrícula:</label>
             <input
               type="text"
@@ -92,7 +92,7 @@ const AlunoMensagem = () => {
               readOnly
               className="matricula"
             />
-          </div>
+          </div> */}
           <div>
             <label className="label">Destinatário:</label>
             <select
