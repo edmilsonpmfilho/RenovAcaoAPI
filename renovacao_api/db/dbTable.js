@@ -81,68 +81,54 @@ const createRespostasTable = `
   );
 `;
 
+const createAvaliacoesTable = `
+  CREATE TABLE IF NOT EXISTS avaliacoes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    matricula_aluno VARCHAR(8) NOT NULL,
+    matricula_psicologo VARCHAR(8) NOT NULL,
+    data_consulta DATE NOT NULL,
+    comportamento ENUM('Muito Cooperativo', 'Cooperativo', 'Neutro', 'Não Cooperativo', 'Muito Não Cooperativo') NOT NULL,
+    expressao_sentimentos BOOLEAN NOT NULL,
+    dificuldades_expressao TEXT,
+    reconhecimento_impacto BOOLEAN NOT NULL,
+    explicacao_impacto TEXT,
+    arrependimento BOOLEAN NOT NULL,
+    forma_arrependimento TEXT,
+    identificacao_motivo BOOLEAN NOT NULL,
+    explicacao_motivo TEXT,
+    estrategias ENUM('Aumentar a comunicação', 'Monitorar o comportamento online', 'Educação sobre ciberbullying', 'Outras') NOT NULL,
+    descricao_estrategias TEXT,
+    metas ENUM('Melhorar a comunicação', 'Reduzir o uso de redes sociais', 'Participar de sessões de aconselhamento', 'Outras') NOT NULL,
+    descricao_metas TEXT,
+    progresso_metas ENUM('Não começou', 'Em progresso', 'Quase concluído', 'Concluído') NOT NULL,
+    detalhes_progresso TEXT,
+    avaliacao_geral ENUM('Muito Insatisfatório', 'Insatisfatório', 'Neutro', 'Satisfatório', 'Muito Satisfatório') NOT NULL,
+    comentarios TEXT,
+    FOREIGN KEY (matricula_aluno) REFERENCES usuarios(matricula) ON DELETE CASCADE,
+    FOREIGN KEY (matricula_psicologo) REFERENCES usuarios(matricula) ON DELETE CASCADE
+  );
+`;
+
 // Função para verificar e criar tabelas
 const dbTable = () => {
-  // Criação da tabela 'usuarios'
-  db.query(createUsersTable, (err) => {
-    if (err) {
-      console.error("Erro ao criar a tabela 'usuarios':", err);
-      return;
-    }
-    console.log("Tabela 'usuarios' verificada/criada com sucesso.");
+  const queries = [
+    { name: "usuarios", query: createUsersTable },
+    { name: "trilhas", query: createTrilhasTable },
+    { name: "links", query: createLinksTable },
+    { name: "links_assistidos", query: createLinksAssistidosTable },
+    { name: "eventos", query: createEventosTable },
+    { name: "mensagens", query: createMensagensTable },
+    { name: "respostas", query: createRespostasTable },
+    { name: "avaliacoes", query: createAvaliacoesTable },
+  ];
 
-    // Criação da tabela 'trilhas'
-    db.query(createTrilhasTable, (err) => {
+  queries.forEach(({ name, query }) => {
+    db.query(query, (err) => {
       if (err) {
-        console.error("Erro ao criar a tabela 'trilhas':", err);
-        return;
+        console.error(`Erro ao criar a tabela '${name}':`, err);
+      } else {
+        console.log(`Tabela '${name}' verificada/criada com sucesso.`);
       }
-      console.log("Tabela 'trilhas' verificada/criada com sucesso.");
-
-      // Criação da tabela 'links'
-      db.query(createLinksTable, (err) => {
-        if (err) {
-          console.error("Erro ao criar a tabela 'links':", err);
-          return;
-        }
-        console.log("Tabela 'links' verificada/criada com sucesso.");
-
-        // Criação da tabela 'links_assistidos'
-        db.query(createLinksAssistidosTable, (err) => {
-          if (err) {
-            console.error("Erro ao criar a tabela 'links_assistidos':", err);
-            return;
-          }
-          console.log("Tabela 'links_assistidos' verificada/criada com sucesso.");
-
-          // Criação da tabela 'eventos'
-          db.query(createEventosTable, (err) => {
-            if (err) {
-              console.error("Erro ao criar a tabela 'eventos':", err);
-              return;
-            }
-            console.log("Tabela 'eventos' verificada/criada com sucesso.");
-
-            // Criação da tabela 'mensagens'
-            db.query(createMensagensTable, (err) => {
-              if (err) {
-                console.error("Erro ao criar a tabela 'mensagens':", err);
-                return;
-              }
-              console.log("Tabela 'mensagens' verificada/criada com sucesso.");
-
-              // Criação da tabela 'respostas'
-              db.query(createRespostasTable, (err) => {
-                if (err) {
-                  console.error("Erro ao criar a tabela 'respostas':", err);
-                  return;
-                }
-                console.log("Tabela 'respostas' verificada/criada com sucesso.");
-              });
-            });
-          });
-        });
-      });
     });
   });
 };
