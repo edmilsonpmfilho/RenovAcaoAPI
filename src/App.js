@@ -21,17 +21,10 @@ import PsicologoCronograma from './pages/psicoCronograma';
 import AdministradorMensagem from './pages/adminMensagem';
 import AlunoMensagem from './pages/alunoMensagem';
 import PsicologoMensagem from './pages/psicoMensagem';
-/* 
-
-import AdministradorRelatorio from './pages/adminrelatorio';
-
+import PsicologoRelatorio from './pages/psicoRelatorio';
+import PsicologoAcompanhamento from './pages/psicoAcompanhamento';
 
 
-
-import PsicologoCronograma from './pages/psicologoagenda';
-import PsicologoAcompanhamento from './pages/psicologoacompanhamento';
-
- */
 
 function App() {
   return (
@@ -56,18 +49,8 @@ function App() {
             <Route path="/adminmensagem" element={<AdministradorMensagem />} />
             <Route path="/alunomensagem" element={<AlunoMensagem />} />
             <Route path="/psicologomensagem" element={<PsicologoMensagem />} />
-
-            {/* 
-            
-            
-            <Route path="/adminrelatorio" element={<AdministradorRelatorio />} />
-                        
-            
-            
-                      
-            <Route path="/psicologoagenda" element={<PsicologoCronograma />} />
-            <Route path="/psicologoacompanhamento" element={<PsicologoAcompanhamento />} />
-             */}
+            <Route path="/psicorelatorio" element={<PsicologoRelatorio />} />
+            <Route path="/psicoacompanhamento" element={<PsicologoAcompanhamento />} />
           </Routes>
           <Footer />
         </div>

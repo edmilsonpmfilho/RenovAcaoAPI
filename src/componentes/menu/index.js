@@ -71,11 +71,7 @@ function Menu() {
                 <MessageIcon /> Mensagens
               </button>
             </Link>
-            <Link to={'/adminrelatorio'}>
-              <button className='button'>
-                <AssessmentIcon /> Relatórios
-              </button>
-            </Link>
+            
           </>
         );
       case 'aluno':
@@ -106,7 +102,7 @@ function Menu() {
                 <CalendarMonthIcon /> Cronograma
               </button>
             </Link>
-            <Link to={'/psicologoacompanhamento'}>
+            <Link to={'/psicoacompanhamento'}>
               <button className='button'>
                 <TimelineIcon /> Acompanhamento
               </button>
@@ -114,6 +110,11 @@ function Menu() {
             <Link to={'/psicologomensagem'}>
               <button className='button'>
                 <MessageIcon /> Mensagens
+              </button>
+            </Link>
+            <Link to={'/psicorelatorio'}>
+              <button className='button'>
+                <AssessmentIcon /> Relatórios
               </button>
             </Link>
           </>
