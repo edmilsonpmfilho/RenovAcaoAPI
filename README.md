@@ -46,7 +46,6 @@ Cronograma: Permite ao administrador criar e gerenciar um calendário de eventos
 
 Usuários: Permite ao administrador visualizar os usuários existentes no sistema e cadastrar novos usuários, incluindo alunos, psicólogos e outros administradores, atribuindo-lhes os papéis apropriados e configurando suas permissões de acesso.
 
-Relatórios: Oferece acesso a relatórios detalhados sobre o acompanhamento de casos de ciberbullying, avaliação dos atribuída pelos psicólogos e outras métricas relevantes.
 
 Mensagens: Permite que o administrador se comunique diretamente com os alunos e psicólogos por meio de mensagens internas.
 
@@ -55,6 +54,8 @@ Mensagens: Permite que o administrador se comunique diretamente com os alunos e 
 Agenda: Permite ao psicólogo visualizar e gerenciar suas consultas psicológicas agendadas com os alunos.
 
 Acompanhamento: Oferece ferramentas para o psicólogo acompanhar o progresso dos alunos, avaliar seu bem-estar emocional e oferecer suporte individualizado conforme necessário.
+
+Relatórios: Oferece acesso a relatórios detalhados sobre o acompanhamento de casos de ciberbullying, avaliação dos atribuída pelos psicólogos e outras métricas relevantes.
 
 Mensagens: Permite que o psicólogo se comunique diretamente com os alunos e administrador por meio de mensagens seguras e confidenciais.
 
@@ -123,7 +124,7 @@ Instale as dependências no diretório functions
 
 ### Configure o Banco de Dados
 
-Edite a configuração do banco de dados no arquivo principal, de acordo com seu ambiente. Abra o arquivo `index.js` presente na pasta `functions` e encontre a seção onde a conexão com o banco de dados é definida.
+Edite a configuração do banco de dados, de acordo com seu ambiente. Abra o arquivo [db.js](renovacao_api\db\db.js) presente na pasta `renovacao_api` e encontre a seção onde a conexão com o banco de dados é definida.
 
     ```javascript
     const db = mysql.createConnection({
@@ -139,16 +140,17 @@ Certifique-se de fornecer as informações corretas do seu banco de dados, inclu
 
 ### Configure a URL base do projeto
 
-Edite a URL base nos arquivos presentes no caminho src/pages
+Edite a URL base a ser utilizada na [apiConfig.js](src\componentes\api\apiConfig.js).
 
 ## Execução
 
 Para iniciar a aplicação, siga estas etapas:
 
+Na pasta do servidor(renovacao_api) execute no terminal:
 ```bash
-  npm run build
+  npm run dev
 ```
-E em seguida
+E em seguida pasta principal do projeto execute no terminal:
 ```bash
   npm start
 ```
@@ -947,14 +949,14 @@ Clone o repositório forkado
 No terminal, execute o seguinte comando (substitua seu-usuario pelo seu nome de usuário no GitHub):
 
  ```bash
-  git clone https://github.com/anajuliaflx/projeto-renovacao.git
+  git clone https://github.com/edmilsonpmfilho/RenovAcaoAPI.git
  ```
 Configure o repositório original como remoto
 
 Adicione o repositório original como um remoto chamado upstream:
 
 ```bash
-  git remote add upstream https://github.com/anajuliaflx/projeto-renovacao.git
+  git remote add upstream hhttps://github.com/edmilsonpmfilho/RenovAcaoAPI.git
 ```
 Crie uma branch para suas mudanças
 
@@ -1024,6 +1026,27 @@ Você pode compartilhar e adaptar este material para qualquer propósito, desde 
 
 Leia o arquivo `LICENSE` para mais informações ou visite [Creative Commons CC0 1.0 Universal (CC0).](https://creativecommons.org/publicdomain/zero/1.0/deed.en).
 
+## Imagens
+
+<p align="center">
+  <img src="src\componentes\img\Pastas do Projeto.png" alt="Pastas do Projeto">
+</p>
+
+<p align="center">
+  <img src="src\componentes\img\Arquivos da Pasta Principal.png" alt="Arquivos da Pasta Principal">
+</p>
+
+<p align="center">
+  <img src="src\componentes\img\Pastas do Page.png" alt="Pastas do Page">
+</p>
+
+<p align="center">
+  <img src="src\componentes\img\Pastas e Arquivos Extras.png" alt="Pastas e Arquivos Extras">
+</p>
+
+<p align="center">
+  <img src="src\componentes\img\Pastas do Servidor (renovacao_api).png" alt="Pastas do Servidor (renovacao_api)">
+</p>
 
 ## Autores
 
