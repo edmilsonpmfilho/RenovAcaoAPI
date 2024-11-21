@@ -220,3 +220,7 @@ git push origin nome-da-sua-branch
     - Certifique-se de seguir o guia de estilo e padrões do projeto.
     - Escreva mensagens de commit claras e descritivas.
     - Teste suas alterações antes de enviar o Pull Request.
+
+## Documentos
+- [Ferramentas](./docs/Definição%20de%20Ferramentas.pdf)
+- [Fluxo de Trabalho do Git](./docs/Fluxo%20de%20Trabalho%20do%20Git.pdf)
