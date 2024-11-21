@@ -1049,8 +1049,8 @@ Leia o arquivo `LICENSE` para mais informações ou visite [Creative Commons CC0
 </p>
 
 ## Documentos
-- [Ferramentas](docs\Definição de Ferramentas.pdf)
-- [Fluxo de Trabalho do Git](docs\Fluxo de Trabalho do Git.pdf)
+- [Ferramentas](docs/Definição de Ferramentas.pdf)
+- [Fluxo de Trabalho do Git](docs/Fluxo de Trabalho do Git.pdf)
 ## Autores
 
 - [@anajulia](https://github.com/anajuliaflx)
