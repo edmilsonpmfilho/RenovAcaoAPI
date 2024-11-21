@@ -177,7 +177,7 @@ E em seguida pasta principal do projeto execute no terminal:
 A URL base para todos os endpoints é
 
 ```https
-    https://projeto-renovacao.web.app/
+    http://localhost:3001
 ```
 
 ### Cadastro de usuário
@@ -1048,6 +1048,9 @@ Leia o arquivo `LICENSE` para mais informações ou visite [Creative Commons CC0
   <img src="src\componentes\img\Pastas do Servidor (renovacao_api).png" alt="Pastas do Servidor (renovacao_api)">
 </p>
 
+## Documentos
+- [Ferramentas](docs\Definição de Ferramentas.pdf)
+- [Fluxo de Trabalho do Git](docs\Fluxo de Trabalho do Git.pdf)
 ## Autores
 
 - [@anajulia](https://github.com/anajuliaflx)
