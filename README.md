@@ -1051,6 +1051,11 @@ Leia o arquivo `LICENSE` para mais informações ou visite [Creative Commons CC0
 ## Documentos
 - [Ferramentas](./docs/Definição%20de%20Ferramentas.pdf)
 - [Fluxo de Trabalho do Git](./docs/Fluxo%20de%20Trabalho%20do%20Git.pdf)
+- [UseCase](./UseCase/UseCase%20-%20RenovAção.pdf)
+- [MockUP](./mockup/MockUP%20RenovAção.pdf)
+- [MindMap](./mindmap/MindMap.pdf)
+- [DataBase](./database/)
+- [Diagrama de Classes](./classes/Diagrama%20Renovação.pdf)
 ## Autores
 
 - [@anajulia](https://github.com/anajuliaflx)
