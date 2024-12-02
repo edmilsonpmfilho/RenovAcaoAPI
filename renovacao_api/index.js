@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(cors());
 app.use("/", router);//router login
 app.use("/", adminCadastroRouter); // Prefixo /api para as rotas de usuário / admincadastro
-app.use("/api", cadastroRouter); // Prefixo /api para as rotas de usuário
+app.use("/", cadastroRouter); // Prefixo /api para as rotas de usuário
 app.use("/", trocarSenhaRouter);// prefixo do trocar senha
 app.use("/", adminTrilhaRouter);// adicionar trilha admin
 app.use("/", alunoTrilhaRouter);// adicionar trilha aluno

@@ -1027,7 +1027,6 @@ Você pode compartilhar e adaptar este material para qualquer propósito, desde 
 Leia o arquivo `LICENSE` para mais informações ou visite [Creative Commons CC0 1.0 Universal (CC0).](https://creativecommons.org/publicdomain/zero/1.0/deed.en).
 
 ## Imagens
-
 <p align="center">
   <img src="src\componentes\img\Pastas do Projeto.png" alt="Pastas do Projeto">
 </p>
@@ -1048,16 +1047,42 @@ Leia o arquivo `LICENSE` para mais informações ou visite [Creative Commons CC0
   <img src="src\componentes\img\Pastas do Servidor (renovacao_api).png" alt="Pastas do Servidor (renovacao_api)">
 </p>
 
-## Documentos
-- [Ferramentas](./docs/Definição%20de%20Ferramentas.pdf)
-- [Fluxo de Trabalho do Git](./docs/Fluxo%20de%20Trabalho%20do%20Git.pdf)
-- [UseCase](./UseCase/UseCase%20-%20RenovAção.pdf)
-- [MockUP](./mockup/MockUP%20RenovAção.pdf)
-- [MindMap](./mindmap/MindMap.pdf)
-- [DataBase](./database/)
-- [Diagrama de Classes](./classes/Diagrama%20Renovação.pdf)
-## Autores
+## Docker
+[Imagens Docker](https://hub.docker.com/repository/docker/edmilsonpessoa/renovacao/general)
+  ### Comandos
+  #### Baixar Imagem
+  ```bash
+    docker pull edmilsonpessoa/renovacao:RenovacaoAPI
+  ``` 
+   ```bash
+    docker pull edmilsonpessoa/renovacao:RenovacaoPages
+  ``` 
+  #### Criar e Rodar Contêiner
+  ##### API
+  ```bash
+    docker run -d -p 3000:3000 --name renovacaoAPI edmilsonpessoa/renovacao:RenovacaoAPI
+  ``` 
+  ##### Pages
+  ```bash
+    docker run -d -p 3001:3001 --name renovacaoPages edmilsonpessoa/renovacao:RenovacaoPages
+  ``` 
+  #### Verificar se está rodando
+   ```bash
+    docker ps
+  ``` 
 
+## Documentos
+- [Apresentação](./renovacaodocs/docs/RenovAção%20-%20Apresentação.pdf)
+- [Ferramentas](./renovacaodocs/docs/Definição%20de%20Ferramentas.pdf)
+- [Fluxo de Trabalho do Git](./renovacaodocs/docs/Fluxo%20de%20Trabalho%20do%20Git.pdf)
+- [UseCase](./renovacaodocs/UseCase/UseCase%20-%20RenovAção.pdf)
+- [MockUP](./renovacaodocs/mockup/MockUP%20RenovAção.pdf)
+- [MindMap](./renovacaodocs/mindmap/MindMap.pdf)
+- [DataBase](./renovacaodocs/database/)
+- [Diagrama de Classes](./renovacaodocs/classes/Diagrama%20Renovação.pdf)
+- [Tabela de Custos](./renovacaodocs/docs/RenovAção%20-%20Custos.pdf)
+
+## Autores
 - [@anajulia](https://github.com/anajuliaflx)
 - [@arielmartins](https://github.com/martinsariel)
 - [@edmilsonpessoa](https://github.com/edmilsonpmfilho)

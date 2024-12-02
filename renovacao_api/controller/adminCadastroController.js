@@ -22,14 +22,6 @@ const AdminCadastroController = {
     });
   },
 
-  // Criar novo usuário
-  createUser: (req, res) => {
-    const { name, email, password, matricula, tipoUsuario } = req.body;
-    AdministradorCadastroModel.insertUser(name, email, password, matricula, tipoUsuario, (err) => {
-      if (err) return res.status(500).json({ error: "Erro ao criar usuário" });
-      res.status(201).json({ message: "Usuário criado com sucesso" });
-    });
-  },
 
   // Excluir usuário
   deleteUser: (req, res) => {

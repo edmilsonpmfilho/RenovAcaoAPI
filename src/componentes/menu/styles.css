@@ -44,11 +44,11 @@
   border-radius: 5px;
   text-align: left;
   cursor: pointer;
-  color: #0395BA; /* Cor do texto */
+  color: #3b5998; /* Cor do texto */
 }
 
 .menu-items .button svg {
-  color: #0395BA; /* Cor dos ícones */
+  color: #3b5998; /* Cor dos ícones */
   margin-right: 10px; /* Espaço entre ícone e texto */
 }
 

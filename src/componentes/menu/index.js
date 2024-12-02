@@ -79,7 +79,7 @@ function Menu() {
           <>
             <Link to={'/alunotrilha'}>
               <button className='button'>
-                <TheatersIcon /> Trilha educativa
+                <TheatersIcon /> Trilha Educativa
               </button>
             </Link>
             <Link to={'/alunocronograma'}>

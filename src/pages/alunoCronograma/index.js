@@ -4,7 +4,6 @@ import Menu from '../../componentes/menu';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import './styles.css';
 import { UserContext } from '../../contexts/UserContext'; // Importa o contexto do usuário
 import styles from './agenda.module.css';
 

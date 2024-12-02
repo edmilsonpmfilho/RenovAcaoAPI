@@ -1,5 +1,5 @@
 .header {
-    background-color: #8390C8;
+    background-color: #3b5998;
     width: 100%;
     height: 80px; /* Altura padrão para o cabeçalho */
     display: flex;
@@ -8,6 +8,7 @@
     padding: 0 20px;
     box-sizing: border-box; /* Inclui padding na largura total */
     overflow-y: hidden;
+    background: #3b5998;
 }
 
 .logo {

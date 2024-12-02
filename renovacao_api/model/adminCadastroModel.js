@@ -19,15 +19,6 @@ const AdministradorCadastroModel = {
     });
   },
 
-  // Inserir novo usuário
-  insertUser: (name, email, password, matricula, tipoUsuario, callback) => {
-    bcrypt.hash(password, saltRounds, (err, hash) => {
-      if (err) return callback(err, null);
-      const query = `INSERT INTO usuarios (nome, email, senha, matricula, tipoUsuario) VALUES (?, ?, ?, ?, ?)`;
-      db.query(query, [name, email, hash, matricula, tipoUsuario], callback);
-    });
-  },
-
   // Excluir usuário por ID
   deleteUserById: (id, callback) => {
     const query = `DELETE FROM usuarios WHERE id = ?`;

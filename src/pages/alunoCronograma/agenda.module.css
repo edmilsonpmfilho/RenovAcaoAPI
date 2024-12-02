@@ -6,7 +6,10 @@ body {
   font-family: 'Lato', sans-serif;
 
 }
-
+.calendar-container {
+  position: relative;
+  z-index: 1; /* Certifique-se de que o calendário está abaixo do menu */
+}
 
 
 .header {

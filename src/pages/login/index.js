@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import "./styles.css";
 import * as yup from "yup";
 import { ErrorMessage, Formik, Form, Field } from "formik";
 import api from '../../componentes/api/apiConfig';
