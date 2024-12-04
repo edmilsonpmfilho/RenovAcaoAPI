@@ -138,14 +138,14 @@ Isso criará uma cópia do repositório na sua conta.
 No terminal, execute o comando abaixo para clonar o repositório para o seu computador:
 
 ```bash
-    git clone https://github.com/anajuliaflx/projeto-renovacao.git
+    git clone https://github.com/edmilsonpmfilho/RenovAcaoAPI.git
 ```
 3. Configure o repositório remoto original
 
 Adicione o repositório original como um "remote" chamado upstream para manter seu fork atualizado:
 
 ```bash
-git remote add upstream https://github.com/anajuliaflx/projeto-renovacao.git
+git remote add upstream https://github.com/edmilsonpmfilho/RenovAcaoAPI.git
 git remote -v
 ```
 
@@ -222,5 +222,12 @@ git push origin nome-da-sua-branch
     - Teste suas alterações antes de enviar o Pull Request.
 
 ## Documentos
-- [Ferramentas](./docs/Definição%20de%20Ferramentas.pdf)
-- [Fluxo de Trabalho do Git](./docs/Fluxo%20de%20Trabalho%20do%20Git.pdf)
+- [Apresentação](./renovacaodocs/docs/RenovAção%20-%20Apresentação.pdf)
+- [Ferramentas](./renovacaodocs/docs/Definição%20de%20Ferramentas.pdf)
+- [Fluxo de Trabalho do Git](./renovacaodocs/docs/Fluxo%20de%20Trabalho%20do%20Git.pdf)
+- [UseCase](./renovacaodocs/UseCase/UseCase%20-%20RenovAção.pdf)
+- [MockUP](./renovacaodocs/mockup/MockUP%20RenovAção.pdf)
+- [MindMap](./renovacaodocs/mindmap/MindMap.pdf)
+- [DataBase](./renovacaodocs/database/)
+- [Diagrama de Classes](./renovacaodocs/classes/Diagrama%20Renovação.pdf)
+- [Tabela de Custos](./renovacaodocs/docs/RenovAção%20-%20Custos.pdf)

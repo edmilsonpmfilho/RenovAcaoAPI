@@ -11,7 +11,7 @@ COPY package*.json ./
 RUN npm install
 
 # Copie o restante dos arquivos da pasta `renovacao_api`
-COPY renovacao_api/ .
+COPY  ./renovacao_api . 
 
 # Exponha a porta usada pela API
 EXPOSE 3000

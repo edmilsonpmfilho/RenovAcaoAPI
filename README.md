@@ -36,7 +36,7 @@ Instituições de Ensino Superior (IES): Profissionais do Núcleo de Apoio a Est
 
 Trilha Educativa: Oferece uma série de vídeos educativos que abordam temas relacionados ao ciberbullying, suas consequências e estratégias de prevenção.
 
-Agenda: Permite que os alunos visualizem um cronograma com datas importantes, incluindo consultas psicológicas e outras atividades relevantes.
+Cronograma: Permite que os alunos visualizem um cronograma com datas importantes, incluindo consultas psicológicas e outras atividades relevantes.
 
 Mensagens: Fornece um meio de comunicação seguro e privado entre os alunos e outros perfis no sistema, como administradores e psicólogos.
 
@@ -51,7 +51,7 @@ Mensagens: Permite que o administrador se comunique diretamente com os alunos e 
 
 ### Perfil do Psicólogo
 
-Agenda: Permite ao psicólogo visualizar e gerenciar suas consultas psicológicas agendadas com os alunos.
+Cronograma: Permite ao psicólogo visualizar e gerenciar suas consultas psicológicas agendadas com os alunos.
 
 Acompanhamento: Oferece ferramentas para o psicólogo acompanhar o progresso dos alunos, avaliar seu bem-estar emocional e oferecer suporte individualizado conforme necessário.
 
@@ -78,7 +78,7 @@ Para instalar o RenovAção, siga as etapas descritas abaixo:
 ### Clone o projeto
 
 ```bash
-  git clone https://github.com/anajuliaflx/projeto-renovacao.git
+  git clone https://github.com/edmilsonpmfilho/RenovAcaoAPI/tree/main.git
 ```
 
 Em seguida acesse o projeto pela IDE de sua preferência
@@ -111,9 +111,6 @@ Instale as dependências no diretório functions
 
 ```bash
   npm install bcrypt express mysql2 nodemon cors
-```
-```bash
-  npm install dotenv
 ```
 ```bash
   npm install express-session
@@ -956,7 +953,7 @@ Configure o repositório original como remoto
 Adicione o repositório original como um remoto chamado upstream:
 
 ```bash
-  git remote add upstream hhttps://github.com/edmilsonpmfilho/RenovAcaoAPI.git
+  git remote add upstream https://github.com/edmilsonpmfilho/RenovAcaoAPI.git
 ```
 Crie uma branch para suas mudanças
 
@@ -1028,23 +1025,23 @@ Leia o arquivo `LICENSE` para mais informações ou visite [Creative Commons CC0
 
 ## Imagens
 <p align="center">
-  <img src="src\componentes\img\Pastas do Projeto.png" alt="Pastas do Projeto">
+  <img src="renovacaodocs/imagens/Pastas do Projeto.png" alt="Pastas do Projeto">
 </p>
 
 <p align="center">
-  <img src="src\componentes\img\Arquivos da Pasta Principal.png" alt="Arquivos da Pasta Principal">
+  <img src="renovacaodocs/imagens/Arquivos da Pasta Principal.png" alt="Arquivos da Pasta Principal">
 </p>
 
 <p align="center">
-  <img src="src\componentes\img\Pastas do Page.png" alt="Pastas do Page">
+  <img src="renovacaodocs/imagens/Pastas do Page.png" alt="Pastas do Page">
 </p>
 
 <p align="center">
-  <img src="src\componentes\img\Pastas e Arquivos Extras.png" alt="Pastas e Arquivos Extras">
+  <img src="renovacaodocs/imagens/Pastas e Arquivos Extras.png" alt="Pastas e Arquivos Extras">
 </p>
 
 <p align="center">
-  <img src="src\componentes\img\Pastas do Servidor (renovacao_api).png" alt="Pastas do Servidor (renovacao_api)">
+  <img src="renovacaodocs/imagens/Pastas do Servidor (renovacao_api).png" alt="Pastas do Servidor (renovacao_api)">
 </p>
 
 ## Docker
